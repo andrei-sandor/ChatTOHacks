@@ -1,16 +1,13 @@
-import argparse
+import audioop
 # from distutils.command.upload import upload
-
 import websockets
 import asyncio
 import base64
 import json
 # from configure import auth_key
-import os
-import utils
-import requests
 import pyaudio
- 
+import time
+
 FRAMES_PER_BUFFER = 3200
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
@@ -18,6 +15,7 @@ RATE = 16000
 p = pyaudio.PyAudio()
 
 # starts recording
+
 stream = p.open(
    format=FORMAT,
    channels=CHANNELS,
@@ -30,6 +28,7 @@ auth_key = "646acad2d1114c38a644e646876a9553"
 URL = "wss://api.assemblyai.com/v2/realtime/ws?sample_rate=16000"
  
 async def send_receive():
+   
    print(f'Connecting websocket to url ${URL}')
    async with websockets.connect(
        URL,
@@ -42,10 +41,23 @@ async def send_receive():
        session_begins = await _ws.recv()
        print(session_begins)
        print("Sending messages ...")
+       
        async def send():
-           while True:
+           start = -1
+           while var:
                try:
                    data = stream.read(FRAMES_PER_BUFFER)
+                   mx = audioop.rms(data, 2)
+                   if mx > 2300:              
+                       start = -1
+                   elif mx < 2300:             
+                        if start < 0:          
+                            start = time.time()
+                            var = True
+                        else:
+                            if time.time() - start >= 5: #Wait five seconds
+                                var=False
+                                return
                    data = base64.b64encode(data).decode("utf-8")
                    json_data = json.dumps({"audio_data":str(data)})
                    await _ws.send(json_data)
@@ -56,7 +68,7 @@ async def send_receive():
                except Exception as e:
                    assert False, "Not a websocket 4008 error"
                await asyncio.sleep(0.01)
-          
+
            return True
       
        async def receive():
