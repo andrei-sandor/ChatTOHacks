@@ -1,9 +1,10 @@
 # Program that translates text from MP3 File into emojis
 
+#text = input("Please enter a message: ")
+
 def emojiMaker(text):
 
     text.lower()
-
     emoji = ""
     if "happy" in text:
         emoji += " \U0001f601"      # Method 1 of displaying emoji (through code)
@@ -18,9 +19,8 @@ def emojiMaker(text):
     if "cool" in text:
         emoji +=  " 😎"   
     if "smart" in text:
-        emoji +=  + " 🧠"
+        emoji += " 🧠"
 
     print(text + emoji)
 
-
-
+emojiMaker()
