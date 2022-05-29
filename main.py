@@ -5,12 +5,16 @@ from ChatMojiBot import *
 app = Flask(__name__)
 
 @app.route('/')
-def sessions():
+def index():
     return render_template('index.html')
 
 
-async def textToEmoji(methods = ['GET']):
-    await send_receive()
+# async def textToEmoji(methods = ['GET']):
+#     await send_receive()
+
+
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

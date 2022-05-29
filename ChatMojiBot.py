@@ -96,10 +96,6 @@ async def send_receive():
 asyncio.run(send_receive())
 
 
-
-
-
-
 # # translation to different languages for speech to text
 # endpoint = "https://api.assemblyai.com/v2/transcript"
 # json = {
