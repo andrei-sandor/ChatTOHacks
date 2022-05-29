@@ -10,3 +10,14 @@ ChatMoji enables friends and family members to connect over a secure https serve
 
 ## How we built it
 Throughout our development and design process we investigated many different frameworks and languages, but in the end we determined that the best language to use was Python, HTML5 and CSS using the flask framework. In order to collect the users audio input we used the pyaudio and to process the audio we used the AIservice assembly AI that the sponsers of the TOHackaton so generously provided to us.
+
+## How To Run ChatMoji
+
+To run gitmoji you need to `cd` into the chatmoji directory
+
+### Windows
+```bash
+pip install pywin && pipwin install pyaudio
+export FLASK_APP=main
+flask run
+```
