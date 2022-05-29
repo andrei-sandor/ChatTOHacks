@@ -21,3 +21,5 @@ pip install pywin && pipwin install pyaudio
 export FLASK_APP=main
 flask run
 ```
+
+Then you can connect to your local host port number which will show up in the terminal.
