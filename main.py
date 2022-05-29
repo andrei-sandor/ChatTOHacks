@@ -11,11 +11,13 @@ def index():
 
 @app.route('/textToEmoji')
 # async
-def textToEmoji(methods = ['GET']):
+def textToEmoji():
     # await send_receive()
     # asyncio.run(send_receive())
-    print("click")
-    runner()
+    # print("click")
+    return(runner())
+    # return "done"
+
 
 
 

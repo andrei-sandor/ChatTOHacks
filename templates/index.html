@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <!-- <script type=text/javascript>
+    
+    <script type=text/javascript>
         var someData;
         function handleClick() {
-        fetch('$(window.location)/textToEmoji', {
+        fetch('/textToEmoji', {
             method: ‘POST’,
             body: JSON.stringify(someData)
         })
         }
-
+        const buttonElement = document.getElementById('microphone-button')
         buttonElement.addEventListener(‘click’, handleClick)
-    </script> -->
+    </script>
     <script src="https://kit.fontawesome.com/24b8a6b9d6.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -42,9 +42,9 @@
         </label>
         
         <label for="rec" class="rec" class='fas fa-microphone'>
-            <input type="button" name="rec" value=""></a>
+            <button name="rec" value="" id="microphone-button"></button>
+            
             <i class='fas fa-microphone'></i>
-            <a href="/textToEmoji"><button>Click Here</button></a>
         </label>
         </form>
 </div>

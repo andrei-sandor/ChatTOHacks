@@ -7,6 +7,8 @@ import json
 # from configure import auth_key
 import pyaudio
 import time
+from emojiTranslator import emojiMaker
+# from emojitranslator import *
 
 FRAMES_PER_BUFFER = 3200
 FORMAT = pyaudio.paInt16
@@ -77,9 +79,12 @@ async def send_receive():
                try:
                    result_str = await _ws.recv()
                    API_ret = json.loads(result_str)
-                   print(API_ret['text'])
-                   if (API_ret['message_type'] == "FinalTranscript"): #determines when user has finished speaking
-                       return API_ret['text']
+                   cont=True
+                #    print(API_ret['text'])
+                   if (API_ret['message_type'] == "FinalTranscript"):
+                        #determines when user has finished speaking
+                       strmake(API_ret['text'])
+                       return
                except websockets.exceptions.ConnectionClosedError as e:
                    print(e)
                    assert e.code == 4008
@@ -89,6 +94,11 @@ async def send_receive():
       
        send_result, receive_result = await asyncio.gather(send(), receive())
 
+def strmake(strm):
+    sp = str(strm)
+    print(emojiMaker(sp))
+    # print(sp)
+    return 
 
 def runner():
     asyncio.run(send_receive())
