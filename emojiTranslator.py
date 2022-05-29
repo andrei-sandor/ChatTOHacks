@@ -1,8 +1,8 @@
 # Program that translates text from MP3 File into emojis
 
-text = input("Please enter a message: ")
+#text = input("Please enter a message: ")
 
-def emojiMaker():
+def emojiMaker(text):
 
     text.lower()
     if "happy" in text:
