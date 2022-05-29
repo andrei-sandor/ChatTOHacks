@@ -13,7 +13,7 @@ Throughout our development and design process we investigated many different fra
 
 ## How To Run ChatMoji
 
-To run gitmoji you need to `cd` into the chatmoji directory
+To run gitmoji you need to `cd` into the chatmoji directory then run
 
 ### Windows
 ```bash
