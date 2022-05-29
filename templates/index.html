@@ -5,8 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="app.css"> -->
+    <!-- <script type=text/javascript>
+        var someData;
+        function handleClick() {
+        fetch('$(window.location)/textToEmoji', {
+            method: ‘POST’,
+            body: JSON.stringify(someData)
+        })
+        }
+
+        buttonElement.addEventListener(‘click’, handleClick)
+    </script> -->
     <script src="https://kit.fontawesome.com/24b8a6b9d6.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -19,6 +30,7 @@
         <p>CHATMOJI</p>
     </div>
     <div class="chat-section">
+        <form action="/textToEmoji">
         <input type="textarea" name="chatbox" class="chat" id="chatbox" placeholder="How are you doing today">
         <label for = "jpgfile" class="file">
             <input type="file" name="jpgfile" id="jpgfile">
@@ -28,12 +40,13 @@
             <input type="submit" value="">
             <i class='fas fa-paper-plane'></i>
         </label>
-        <label for="rec" class="rec" class='fas fa-microphone'>
-            <input type="button" name="rec" value="">
-            <i class='fas fa-microphone'></i>
-        </label>
         
-    
+        <label for="rec" class="rec" class='fas fa-microphone'>
+            <input type="button" name="rec" value=""></a>
+            <i class='fas fa-microphone'></i>
+            <a href="/textToEmoji"><button>Click Here</button></a>
+        </label>
+        </form>
 </div>
 </body>
 </html>
