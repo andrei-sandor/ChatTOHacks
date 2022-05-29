@@ -5,21 +5,22 @@
 def emojiMaker(text):
 
     text.lower()
+    emoji = ""
     if "happy" in text:
-        print(text + " \U0001f601")      # Method 1 of displaying emoji (through code)
-    elif "sad" in text:
-        print(text + " 😢")              # Method 2 of displaying emoji (through directly putting the emoji in
-    elif "angry" in text:
-        print(text + " 😡")
-    elif "scared" in text:
-        print(text + " 😱")
-    elif "worried" in text:
-        print(text + " 😳")
-    elif "cool" in text:
-        print(text + " 😎")
-    elif "smart" in text:
-        print(text + " 🧠")
-    else:
-        print(text)
+        emoji += " \U0001f601"      # Method 1 of displaying emoji (through code)
+    if "sad" in text:
+        emoji += " 😢"              # Method 2 of displaying emoji (through directly putting the emoji in
+    if "angry" in text:
+        emoji +=  " 😡" 
+    if "scared" in text:
+        emoji +=  " 😱"
+    if "worried" in text:
+        emoji +=  " 😳"
+    if "cool" in text:
+        emoji +=  " 😎"   
+    if "smart" in text:
+        emoji +=  + " 🧠"
+
+    print(text + emoji)
 
 emojiMaker()
