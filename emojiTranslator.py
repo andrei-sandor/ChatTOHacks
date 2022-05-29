@@ -1,25 +1,28 @@
 # Program that translates text from MP3 File into emojis
 
-#text = input("Please enter a message: ")
+text = input("Please enter a message: ")
 
-def emojiMaker(text):
+def emojiMaker():
 
     text.lower()
+    i = 0
+
+    while (i < len(text)):
+        i = i + 1
+
     if "happy" in text:
-        print(text + " \U0001f601")      # Method 1 of displaying emoji (through code)
-    elif "sad" in text:
-        print(text + " 😢")              # Method 2 of displaying emoji (through directly putting the emoji in
-    elif "angry" in text:
+            print(text + " 😄")
+    if "sad" in text:
+        print(text + " 😢")
+    if "angry" in text:
         print(text + " 😡")
-    elif "scared" in text:
+    if "scared" in text:
         print(text + " 😱")
-    elif "worried" in text:
+    if "worried" in text:
         print(text + " 😳")
-    elif "cool" in text:
+    if "cool" in text:
         print(text + " 😎")
-    elif "smart" in text:
+    if "smart" in text:
         print(text + " 🧠")
-    else:
-        print(text)
 
 emojiMaker()
