@@ -1,6 +1,7 @@
+from pydoc import cli
 from flask import Flask, render_template
 from ChatMojiBot import *
-
+import asyncio
 
 app = Flask(__name__)
 
@@ -8,9 +9,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
-# async def textToEmoji(methods = ['GET']):
-#     await send_receive()
+@app.route('/textToEmoji')
+# async
+def textToEmoji(methods = ['GET']):
+    # await send_receive()
+    # asyncio.run(send_receive())
+    print("click")
+    runner()
 
 
 

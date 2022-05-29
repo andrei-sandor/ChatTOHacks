@@ -79,7 +79,7 @@ async def send_receive():
                    API_ret = json.loads(result_str)
                    print(API_ret['text'])
                    if (API_ret['message_type'] == "FinalTranscript"): #determines when user has finished speaking
-                       break
+                       return API_ret['text']
                except websockets.exceptions.ConnectionClosedError as e:
                    print(e)
                    assert e.code == 4008
@@ -90,10 +90,10 @@ async def send_receive():
        send_result, receive_result = await asyncio.gather(send(), receive())
 
 
+def runner():
+    asyncio.run(send_receive())
 
 
-
-asyncio.run(send_receive())
 
 
 # # translation to different languages for speech to text
