@@ -12,7 +12,7 @@ def sessions():
 async def textToEmoji(methods = ['GET']):
     await send_receive()
 
-    @app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
