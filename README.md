@@ -1,6 +1,6 @@
 # ChatMoji
 
-##Inspiration
+## Inspiration
 Social media plays a big role in the daily lives of most members of society, due to the coronavirus pandemic the use of social media has increased significantly with more and more users using apps such as Messenger, Instagram and Facebook. Due to the lockdown friends and family haven't been able to meet each others in person making it difficult to express emotions. 
 
 We wanted to bridge the divide that the lockdown has brought by adding user interaction via speech to text and emojis.
