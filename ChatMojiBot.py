@@ -43,6 +43,7 @@ async def send_receive():
        print("Sending messages ...")
        
        async def send():
+           var = True
            start = -1
            while var:
                try:
@@ -75,7 +76,10 @@ async def send_receive():
            while True:
                try:
                    result_str = await _ws.recv()
-                   print(json.loads(result_str)['text'])
+                   API_ret = json.loads(result_str)
+                   print(API_ret['text'])
+                   if (API_ret['message_type'] == "FinalTranscript"): #determines when user has finished speaking
+                       break
                except websockets.exceptions.ConnectionClosedError as e:
                    print(e)
                    assert e.code == 4008
